@@ -1,3 +1,4 @@
+<app-search></app-search>
 <ul>
     <li *ngFor="let food of foods">
      <a routerLink="/food/{{food.id}}">
@@ -6,8 +7,34 @@
             <div class = "name">
             {{food.name}}
             </div>
+            <span class="favorite {{food.favorite?'':'not'}}" >
+              ❤
+            </span>
+            <div class="stars">
+              <ngb-rating [rate]="food.stars"
+               [max]="5"
+               [readonly]="true"></ngb-rating>
+            </div>
+            <div class="product-item-footer">
+              <div class="origins">
+                <span *ngFor="let origin of food.origins">
+                  {{origin}}
+                </span>
+              </div>
+              <div class="cook-time">
+                <span>🕒</span>
+                {{food.cookTime}}
+              </div>
+            </div>
+
+            <div class="price">
+              <span>
+                {{food.price | currency}}
+              </span>
+            </div>
         </div>
 
      </a>
     </li>
 </ul>
+
