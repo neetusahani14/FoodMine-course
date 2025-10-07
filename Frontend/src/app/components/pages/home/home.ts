@@ -5,11 +5,12 @@ import { Food } from '../../../shared/models/food';
 import { CommonModule } from '@angular/common';
 import { NgbRating } from "@ng-bootstrap/ng-bootstrap";
 import { Search } from '../../partials/search/search';
+import { Tags } from '../../partials/tags/tags';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgbRating,Search],
+  imports: [RouterLink, CommonModule, NgbRating,Search, Tags],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -19,6 +20,8 @@ export class Home {
     activatedRoute.params.subscribe(params=>{
       if(params['searchTerm'])
         this.foods= foodsService.getAllFoodsBySerachTerm(params['searchTerm']);  
+      else if(params['tag'])
+        this.foods= foodsService.getAllFoodsByTag(params['tag']);
       else
         this.foods=foodsService.getAll();
     });

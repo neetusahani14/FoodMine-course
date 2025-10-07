@@ -1,0 +1,18 @@
+div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div a{
+    background-color: #f0f0f0;
+    padding: 0.3rem 1rem;
+    border-radius: 10rem;
+    margin: 0.2rem 0.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    color:blue;
+}
+
+div a:hover{
+    background-color: #e0e0e0;
+}
