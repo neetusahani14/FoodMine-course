@@ -8,4 +8,5 @@ export class Food {
     imageUrl!:string;
     origins!:string[];
     cookTime!:string;
+    static price: number;
 }
