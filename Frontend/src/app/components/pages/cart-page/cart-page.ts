@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Cart } from '../../../shared/models/Cart';
 import { Carts } from '../../../services/carts';
 import { CartItem } from '../../../shared/models/CartItem';
@@ -15,6 +15,7 @@ import { NotFound } from "../../partials/not-found/not-found";
   styleUrl: './cart-page.css'
 })
 export class CartPage {
+   @Input() visible: boolean = false;
   cart!: Cart;
   constructor( private cartsService: Carts ) {
     this.cartsService.getCartObservable().subscribe(cart => {

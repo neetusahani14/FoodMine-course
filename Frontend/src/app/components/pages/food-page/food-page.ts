@@ -6,10 +6,11 @@ import { NgbRating } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Carts } from '../../../services/carts';
+import { NotFound } from "../../partials/not-found/not-found";
  CommonModule
 @Component({
   selector: 'app-food-page',
-  imports: [ CommonModule, RouterModule, NgbRating ],
+  imports: [CommonModule, RouterModule, NgbRating, NotFound],
   templateUrl: './food-page.html',
   styleUrl: './food-page.css'
 })

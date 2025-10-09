@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { NgbRating } from "@ng-bootstrap/ng-bootstrap";
 import { Search } from '../../partials/search/search';
 import { Tags } from '../../partials/tags/tags';
+import { NotFound } from '../../partials/not-found/not-found';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgbRating,Search, Tags],
+  imports: [RouterLink, CommonModule, NgbRating,Search, Tags,NotFound],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
