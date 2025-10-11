@@ -14,7 +14,9 @@ import { RouterModule } from '@angular/router';
 export class Tags {
   tags?:Tag[];
   constructor(private foodsService:Foods){
-    this.tags= foodsService.getAllTags();
+    foodsService.getAllTags().subscribe(servertags=>{
+      this.tags=servertags;
+    });
   }
 
 }

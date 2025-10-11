@@ -7,6 +7,7 @@ import { NgbRating } from "@ng-bootstrap/ng-bootstrap";
 import { Search } from '../../partials/search/search';
 import { Tags } from '../../partials/tags/tags';
 import { NotFound } from '../../partials/not-found/not-found';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +19,18 @@ import { NotFound } from '../../partials/not-found/not-found';
 export class Home {
   foods:Food[]=[];
   constructor(foodsService:Foods, activatedRoute:ActivatedRoute){
+    let foodObservable:Observable<Food[]>;
     activatedRoute.params.subscribe(params=>{
       if(params['searchTerm'])
-        this.foods= foodsService.getAllFoodsBySerachTerm(params['searchTerm']);  
+       foodObservable= foodsService.getAllFoodsBySerachTerm(params['searchTerm']);  
       else if(params['tag'])
-        this.foods= foodsService.getAllFoodsByTag(params['tag']);
+        foodObservable= foodsService.getAllFoodsByTag(params['tag']);
       else
-        this.foods=foodsService.getAll();
+        foodObservable=foodsService.getAll();
+
+      foodObservable.subscribe(foods=>{
+        this.foods=foods;
+      });
     });
   }
 
