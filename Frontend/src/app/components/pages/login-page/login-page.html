@@ -1,0 +1,47 @@
+<DIV class="container">
+    <div class="details">
+        <app-title title="Login"></app-title>
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email" placeholder="Enter your email" required>
+            </div>
+            <!-- <div class="error-list" *ngIf="formControls['email'].errors && isSubmitted">
+              
+                    @if (formControls['email'].errors && formControls['email'].errors['required']) {
+                         <div>Email is required.</div>
+                        }
+                    @if (formControls['email'].errors && formControls['email'].errors['email']) {
+                         <div>Invalid email format.</div>
+                        }
+
+            </div> -->
+            @if (formControls['email'].errors && isSubmitted) {
+  <div class="error-list">
+    @if (formControls['email'].errors['required']) {
+      <div>Email is required.</div>
+    }
+    @if (formControls['email'].errors['email']) {
+      <div>Invalid email format.</div>
+    }
+  </div>
+}
+  <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" formControlName="password" placeholder="Enter your password" required>
+
+            </div>
+            @if (formControls['password'].errors && isSubmitted) {
+             <div class="error-list">
+              @if (formControls['password'].errors['required']) {
+              <div>Password is required.</div>
+                  }
+                </div>
+                    } </form>
+            <button type="submit">Login</button>
+       
+    
+    </div>
+   
+
+</DIV>

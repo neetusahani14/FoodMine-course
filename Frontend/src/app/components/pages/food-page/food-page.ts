@@ -20,8 +20,8 @@ export class FoodPage {
     private cartService: Carts, private router:Router){
     activatedRoute.params.subscribe(params=>{
       if(params['id'])
-      foodsService.getFoodById(params['id']).subscribe(food=>{
-        this.food=food;
+      foodsService.getFoodById(params['id']).subscribe(serverFood=>{
+        this.food=serverFood;
       });
     });
   }

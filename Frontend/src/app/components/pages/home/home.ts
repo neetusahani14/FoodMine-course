@@ -18,6 +18,7 @@ import { Observable } from 'rxjs';
 })
 export class Home {
   foods:Food[]=[];
+INR: string|undefined;
   constructor(foodsService:Foods, activatedRoute:ActivatedRoute){
     let foodObservable:Observable<Food[]>;
     activatedRoute.params.subscribe(params=>{
@@ -28,8 +29,8 @@ export class Home {
       else
         foodObservable=foodsService.getAll();
 
-      foodObservable.subscribe(foods=>{
-        this.foods=foods;
+      foodObservable.subscribe(serverFoods=>{
+        this.foods=serverFoods;
       });
     });
   }
