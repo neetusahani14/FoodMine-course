@@ -54,6 +54,7 @@ a span{
     z-index: 1;
     background: whitesmoke;
     display: none;
+    color:  #ff4d4d;
 }
 
 .menu-container:hover .menu{

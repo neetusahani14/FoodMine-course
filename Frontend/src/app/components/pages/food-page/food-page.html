@@ -1,46 +1,49 @@
-<app-not-found
-[visible]="!food"
-notFoundMessage="Food not found"
-resetLinkText="Go to Food Menu"></app-not-found>
-<div *ngIf="food" class="container">
-    <img [src]="food.imageUrl" [alt]="food.name"/>
+<app-not-found [visible]="!food" notFoundMessage="Food not found" resetLinkText="Go to Food Menu"></app-not-found>
+@if(food) {
+<div class="container">
+    <img [src]="food.imageUrl" [alt]="food.name" />
     <div class="details">
         <div class="header">
             <span class="name">
                 {{ food.name }}
             </span>
-            <span class="favorite {{food.favorite?'':'not'}}" >
-              ❤
+            <span class="favorite {{food.favorite?'':'not'}}">
+                ❤
             </span>
 
         </div>
-        <div class ="rating">
-             <ngb-rating [rate]="food.stars"
-               [max]="5"
-               [readonly]="true"></ngb-rating>
+        <div class="rating">
+            <ngb-rating [rate]="food.stars" [max]="5" [readonly]="true"></ngb-rating>
         </div>
         <div class="origins">
-            <span *ngFor="let origin of food.origins">
-              {{origin}}
-            </span>
+            @for (origin of food.origins; track origin) {
+            <span>
+                {{origin}}
+            </span>}
         </div>
         <div class="tags">
-            <a *ngFor="let tag of food.tags"
+            <!-- <a *ngFor="let tag of food.tags"
                routerLink="/tag/{{tag}}">
-                {{tag}} </a>
+                {{tag}} </a> -->
+            @for (tag of food.tags; track tag) {
+            <a routerLink="/tag/{{tag}}">
+                {{tag}}
+            </a>
+            }
         </div>
         <div class="cook-time">
             <span>Time to cook about <strong>{{food.cookTime}}</strong>
-                </span>
+            </span>
         </div>
         <div class="price">
             <span>
-              {{food.price | currency:'INR'}}
+                {{food.price | currency:'INR'}}
             </span>
         </div>
         <button (click)="addToCart()">
             Add to cart
         </button>
+    </div>
+
 </div>
-
-
+}

@@ -67,7 +67,7 @@ export const sample_foods:any[]=[
     tags: ['FastFood', 'Pizza', 'Lunch'],
   },
    {
-    id:'6',
+    id:'7',
     name: 'Paratha',
     price: 70,
     cookTime: '40-50',
@@ -78,7 +78,7 @@ export const sample_foods:any[]=[
     tags: ['FastFood', 'Pizza', 'Lunch'],
   },
    {
-    id:'6',
+    id:'8',
     name: 'Chhole Bhature',
     price: 80,
     cookTime: '40-50',
@@ -89,7 +89,7 @@ export const sample_foods:any[]=[
     tags: ['FastFood', 'Pizza', 'Lunch'],
   },
    {
-    id:'6',
+    id:'9',
     name: 'Sandwich',
     price: 70,
     cookTime: '40-50',
@@ -100,7 +100,7 @@ export const sample_foods:any[]=[
     tags: ['FastFood', 'Pizza', 'Lunch'],
   },
    {
-    id:'6',
+    id:'10',
     name: 'Noodles',
     price: 140,
     cookTime: '40-50',
@@ -111,7 +111,7 @@ export const sample_foods:any[]=[
     tags: ['FastFood', 'Pizza', 'Lunch'],
   },
    {
-    id:'6',
+    id:'11',
     name: 'Pasta',
     price: 150,
     cookTime: '40-50',
@@ -122,7 +122,7 @@ export const sample_foods:any[]=[
     tags: ['FastFood', 'Pizza', 'Lunch'],
   },
    {
-    id:'6',
+    id:'12',
     name: 'Veg Roll',
     price: 80,
     cookTime: '40-50',
@@ -147,7 +147,7 @@ export const sample_tags: any[] = [
 
 export const sample_users: any[] = [
   {
-    name: 'Nitus',
+    name: 'Neetu',
     email: 'neetu@gmail.com',
     password: '12345',
     address: '123 Main St, City, Country',

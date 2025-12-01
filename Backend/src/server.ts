@@ -7,54 +7,58 @@ app.use(express.json());
 //localhost:4200
 app.use(cors({
     credentials: true,
-  origin: ["http://localhost:4200"] 
+    origin: ["http://localhost:4200"]
 }));
 
 app.get('/api/foods', (req, res) => {
     res.send(sample_foods);
 });
 
+app.get('/', (req, res) => {
+    res.send('✅ Backend is running. Try /api/foods');
+});
+
 app.get("/api/foods/search/:searchTerm", (req, res) => {
-    const  searchTerm  = req.params.searchTerm;
+    const searchTerm = req.params.searchTerm;
     const filteredFoods = sample_foods.filter(food =>
         food.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     res.send(filteredFoods);
 });
 
-app.get('/api/foods/tags', (req, res) => {
+app.get("/api/foods/tags", (req, res) => {
     res.send(sample_tags);
 });
 
-app.get('/api/foods/tag/:tagName', (req, res) => {
+app.get("/api/foods/tag/:tagName", (req, res) => {
     const tagName = req.params.tagName;
     const filteredFoods = sample_foods.filter(food => food.tags?.includes(tagName));
     res.send(filteredFoods);
 });
 
-app.get('/api/food/:foodId', (req, res) => {
+app.get("/api/foods/:foodId", (req, res) => {
     const foodId = req.params.foodId;
     const food = sample_foods.find(food => food.id == foodId);
     res.send(food);
 });
 
 app.post("/api/users/login", (req, res) => {
- const { email, password } = req.body;
- const user= sample_users.find(user=>user.email==email && user.password==password);
- if(user){
-    res.send(generateTokenResponse(user));
- }else{
-    res.status(400).send({message:'Invalid email or password'});
- }
+    const { email, password } = req.body;
+    const user = sample_users.find(user => user.email == email && user.password == password);
+    if (user) {
+        res.send(generateTokenResponse(user));
+    } else {
+        res.status(400).send({ message: 'Invalid email or password' });
+    }
 });
 
-const generateTokenResponse = (user:any) => {
+const generateTokenResponse = (user: any) => {
     const token = jwt.sign({
         email: user.email,
         isAdmin: user.isAdmin
-    }, 'your_jwt_secret', { expiresIn: '1h' });
+    }, "SomeRandomText", { expiresIn: '30d' });
 
- user.token = token;
+    user.token = token;
     return user;
 }
 

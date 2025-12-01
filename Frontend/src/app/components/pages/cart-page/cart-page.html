@@ -4,8 +4,8 @@
 notFoundMessage="Your cart is empty!"
 resetLinkText="Go to Food Menu"
 ></app-not-found>
-
-<div *ngIf="cart && cart.item.length" class="container">
+@if (cart && cart.item.length){
+<div class="container">
     <ul>
         <li *ngFor="let cartItem of cart.item">
             <div>
@@ -52,3 +52,5 @@ resetLinkText="Go to Food Menu"
         </a>
     </div>
 </div>
+}
+

@@ -4,7 +4,8 @@
 [visible]="!foods || !foods.length"
 resetLinkText="Reset Search"></app-not-found>
 <ul>
-    <li *ngFor="let food of foods">
+  @for (food of foods;  track food.id) {
+    <li >
      <a routerLink="/food/{{food.id}}">
         <img [src]="food.imageUrl" [alt]="food.name"/>
         <div class="content">
@@ -21,9 +22,15 @@ resetLinkText="Reset Search"></app-not-found>
             </div>
             <div class="product-item-footer">
               <div class="origins">
-                <span *ngFor="let origin of food.origins">
+                @for (origin of food.origins; track origin) {
+                  <span>
                   {{origin}}
                 </span>
+                }
+                @for (origin of food.origins; track origin) {
+                  <span>
+                  {{origin}}
+                </span>}
               </div>
               <div class="cook-time">
                 <span>🕒</span>
@@ -40,5 +47,8 @@ resetLinkText="Reset Search"></app-not-found>
 
      </a>
     </li>
+
+  }
+    
 </ul>
 
