@@ -1,0 +1,25 @@
+<!-- 
+ @if(errorMessages && showErrorsIfTouchedOnly) {
+                    <div class="error-list" >
+                   @for( errorMessage of errorMessages;track errorMessage) {
+                        <div >
+                        {{ errorMessage }}
+                    </div>
+                   }
+                </div>
+                } -->
+<!-- <div *ngIf="errorMessages.length > 0 && (!showErrorsIfTouchedOnly || control.touched)" class="error-list" >
+  <div *ngFor="let errorMessage of errorMessages" >
+    {{ errorMessage }}
+  </div>
+</div>   -->
+
+@if (errorMessages.length > 0 && (!showErrorsIfTouchedOnly || control.touched)) {
+  <div class="error-list">
+    @for (errorMessage of errorMessages; track errorMessage) {
+      <div>
+        {{ errorMessage }}
+      </div>
+    }
+  </div>
+}

@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-input-container',
-  imports: [],
+  selector: 'input-container',
+  imports: [CommonModule],
   templateUrl: './input-container.html',
   styleUrl: './input-container.css'
 })
 export class InputContainer {
+@Input() 
+label!: string;
+@Input()
+bgColor = 'white';
+
+constructor() { }
 
 }

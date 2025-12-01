@@ -2,26 +2,16 @@
     <div class="details">
         <app-title title="Login"></app-title>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Enter you email id" formControlName="email" />
-                
-                @if(loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
-                    <div class="error" >
-                    Valid email is required.
-                </div>
-                }
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" placeholder="Enter your password" formControlName="password" />
-                
-                @if(loginForm.get('password')?.touched && loginForm.get('password')?.invalid){
-                    <div class="error">
-                    Password is required.
-                </div>
-                }
-            </div>
-            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+           
+            <text-input [control]="formControls['email']"
+             [label]="'Email'" [text]="'email'"
+              [showErrorsIfTouchedOnly]="isSubmitted"></text-input>
+            
+            <text-input [control]="formControls['password']"
+             [label]="'Password'" [text]="'password'"
+              [showErrorsIfTouchedOnly]="isSubmitted"></text-input>
+
+            <default-button
+              [text]="'Login'"></default-button>
         </form>
     </div>
