@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { min } from 'rxjs';
 
 const VALIDATORS_MESSAGES:any={
   required: 'This field is required.',
-  email: 'Please enter a valid email address.'
+  email: 'Please enter a valid email address.',
+  minlength: 'The value is too short.',
+  notMatch: 'Passwords do not match.'
 }
 @Component({
   selector: 'input-validation',

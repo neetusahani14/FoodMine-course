@@ -3,8 +3,9 @@ import { BehaviorSubject, Observable, tap} from 'rxjs';
 import { User  } from '../shared/models/User';
 import { HttpClient } from '@angular/common/http';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
-import { USER_LOGIN_URL } from '../shared/constants/urls';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
 const USER_KEY = 'User';
 @Injectable({
@@ -18,20 +19,53 @@ export class UserService {
     this.userObservable = this.userSubject.asObservable();
   }
 
-  login(userLogin:IUserLogin): Observable<User> {
-    return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
-      tap({
-        next: (user) => {
-          this.setUserToLocalStorage(user);
-         this.userSubject.next(user);
-         this.toastrService.success(`Welcome back ${user.name}!`, 'Login Successful');
-        },
-        error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Login Failed');
-        }
-      })
-    );
-  }
+  // login(userLogin:IUserLogin): Observable<User> {
+  //   return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
+  //     tap({
+  //       next: (user) => {
+  //         this.setUserToLocalStorage(user);
+  //        this.userSubject.next(user);
+  //        this.toastrService.success(`Welcome back ${user.name}!`, 'Login Successful');
+  //       },
+  //       error: (errorResponse) => {
+  //         this.toastrService.error(errorResponse.error, 'Login Failed');
+  //       }
+  //     })
+  //   );
+  // }
+
+  login(userLogin: IUserLogin): Observable<User> {
+  return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
+    tap({
+      next: (user) => {
+        this.setUserToLocalStorage(user);
+        this.userSubject.next(user);
+        this.toastrService.success(`Welcome back ${user.name}!`, 'Login Successful');
+      },
+      error: (errorResponse) => {
+        // ✅ Use the message property
+        this.toastrService.error(errorResponse.error.message, 'Login Failed');
+      }
+    })
+  );
+}
+
+register(userRegister: IUserRegister): Observable<User> {
+  return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
+    tap({
+      next: (user) => {
+        this.setUserToLocalStorage(user);
+        this.userSubject.next(user);
+        this.toastrService.success(`Welcome ${user.name}!`, 
+          'Registration Successful');
+      },
+      error: (errorResponse) => {
+        this.toastrService.error(errorResponse.error.message, 
+          'Registration Failed');
+      }
+    })
+  );
+}
 
   logout(){
     this.userSubject.next(new User());
