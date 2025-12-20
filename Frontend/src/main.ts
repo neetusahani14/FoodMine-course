@@ -1,19 +1,22 @@
 /// <reference types="@angular/localize" />
 
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { App } from './app/app';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes'; // if you have routing
-import { provideHttpClient } from '@angular/common/http';
+import {  provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loadingInterceptor } from './app/shared/interceptors/loading-interceptor';
+
+
 
 bootstrapApplication(App, {
   providers: [
     provideAnimations(),
-    provideHttpClient(),
+    provideHttpClient( withInterceptors([loadingInterceptor])   ),
+    
     importProvidersFrom(ToastrModule.forRoot(
       {
         positionClass: 'toast-bottom-right',
@@ -26,6 +29,10 @@ bootstrapApplication(App, {
 
 
 
+
+function withInterceptorsFromDi(loadingInterceptor: unknown): import("@angular/common/http").HttpFeature<import("@angular/common/http").HttpFeatureKind> {
+  throw new Error('Function not implemented.');
+}
 // import { bootstrapApplication } from '@angular/platform-browser';
 
 // import {App} from './app/app';

@@ -1,0 +1,48 @@
+<table>
+    <tr>
+        <td colspan="5">
+            <h3>Order Items:</h3>
+        </td>
+    </tr>
+    @for (item of order.items; track $index) {
+        <tr>
+        <td>
+            <a routerLink="/food/{{item.food.id}}">
+                    <img [src]="item.food.imageUrl" />
+            </a>
+        </td>
+        <td>
+          
+                {{item.food.name}}
+            
+            </td>  
+        <td>
+            
+                {{item.price | currency:'INR'}} 
+           
+        </td>
+        <td>
+           
+                {{item.quantity}}
+           
+            </td>
+        <td>
+           
+                {{item.price| currency:'INR' }}
+         
+        </td>
+     
+        </tr>
+    }
+    <tr>
+        <td colspan="3"></td>
+        <td>
+            <strong>Total:</strong>
+        </td>
+        <td>
+            {{order.totalPrice | currency:'INR'}}
+        </td>
+    </tr>
+   
+        
+</table>

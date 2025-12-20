@@ -18,33 +18,33 @@ router.get("/seed", expressAsyncHandler(async (req, res) => {
     res.send("Seed is done!");
 }));
 
-// router.post("/login", (req, res) => {
-//     const { email, password } = req.body;
-//     const user = sample_users.find(user => user.email == email && user.password == password);
-//     if (user) {
-//         res.send(generateTokenResponse(user));
-//     } else {
-//         res.status(400).send({ message: 'Invalid email or password' });
-//     }
-// });
-
-router.post("/login", expressAsyncHandler(async (req, res) => {
+router.post("/login", (req, res) => {
     const { email, password } = req.body;
-    console.log(req.body);
-    
-    const user = await UserModel.findOne({email});
-    console.log(user);
-    
-    
-    if (user && (await bcrypt.compare(password, user.password))) {
-      res.send(generateTokenResponse(user)); 
+    const user = sample_users.find(user => user.email == email && user.password == password);
+    if (user) {
+        res.send(generateTokenResponse(user));
     } else {
-      const BAD_REQUEST = 400;
-        res.status(BAD_REQUEST).send({ message: 'Invalid email or password' });
-       
+        res.status(400).send({ message: 'Invalid email or password' });
     }
+});
+
+// router.post("/login", expressAsyncHandler(async (req, res) => {
+//     const { email, password } = req.body;
+//     console.log(req.body);
     
-}));
+//     const user = await UserModel.findOne({email});
+//     console.log(user);
+    
+    
+//     if (user && (await bcrypt.compare(password, user.password))) {
+//       res.send(generateTokenResponse(user)); 
+//     } else {
+//       const BAD_REQUEST = 400;
+//         res.status(BAD_REQUEST).send({ message: 'Invalid email or password' });
+       
+//     }
+    
+// }));
 
 router.post("/register", expressAsyncHandler(async (req, res) => {
     const { name, email, password, address} = req.body;
