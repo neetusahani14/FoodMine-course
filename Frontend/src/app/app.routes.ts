@@ -5,6 +5,7 @@ import { CartPage } from './components/pages/cart-page/cart-page';
 import { LoginPage } from './components/pages/login-page/login-page';
 import { RegisterPage } from './components/pages/register-page/register-page';
 import { CheckoutPage } from './components/pages/checkout-page/checkout-page';
+import { authGuard } from './auth/guards/auth-guard';
 
 
 export const routes: Routes = [
@@ -15,7 +16,7 @@ export const routes: Routes = [
     {path:'cart-page', component: CartPage},
     {path:'login',component:LoginPage},
     {path:'register',component:RegisterPage},
-    {path:'checkout', component: CheckoutPage},
+    {path:'checkout', component: CheckoutPage, canActivate:[authGuard]},
     {path:'map',component:Map}
 
 ];
