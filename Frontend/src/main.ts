@@ -9,6 +9,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes'; // if you have routing
 import {  provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from './app/shared/interceptors/loading-interceptor';
+import { authInterceptor } from './app/auth/auth-interceptor';
 
 
 
@@ -16,6 +17,7 @@ bootstrapApplication(App, {
   providers: [
     provideAnimations(),
     provideHttpClient( withInterceptors([loadingInterceptor])   ),
+    provideHttpClient( withInterceptors([authInterceptor])   ),
     
     importProvidersFrom(ToastrModule.forRoot(
       {

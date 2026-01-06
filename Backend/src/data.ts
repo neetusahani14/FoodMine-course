@@ -4,7 +4,7 @@ export const sample_foods:any[]=[
     id:'1',
     name: 'Pizza Pepperoni',
     cookTime: '10-20',
-    price: 250,
+    price: 25,
     favorite: false,
     origins: ['italy'],
     stars: 4.5,
@@ -14,7 +14,7 @@ export const sample_foods:any[]=[
   {
     id:'2',
     name: 'Meatball',
-    price: 70,
+    price: 7,
     cookTime: '20-30',
     favorite: true,
     origins: ['persia', 'middle east', 'china'],
@@ -25,7 +25,7 @@ export const sample_foods:any[]=[
   {
     id:'3',
     name: 'Hamburger',
-    price: 90,
+    price: 9,
     cookTime: '10-15',
     favorite: false,
     origins: ['germany', 'us'],
@@ -36,7 +36,7 @@ export const sample_foods:any[]=[
   {
     id:'4',
     name: 'Fried Potatoes',
-    price: 100,
+    price: 10,
     cookTime: '15-20',
     favorite: true,
     origins: ['belgium', 'france'],
@@ -47,7 +47,7 @@ export const sample_foods:any[]=[
   {
     id:'5',
     name: 'Chicken Soup',
-    price: 270,
+    price: 27,
     cookTime: '40-50',
     favorite: false,
     origins: ['india', 'asia'],
@@ -58,7 +58,7 @@ export const sample_foods:any[]=[
   {
     id:'6',
     name: 'Vegetables Pizza',
-    price: 300,
+    price: 30,
     cookTime: '40-50',
     favorite: false,
     origins: ['italy'],
@@ -69,7 +69,7 @@ export const sample_foods:any[]=[
    {
     id:'7',
     name: 'Paratha',
-    price: 70,
+    price: 7,
     cookTime: '40-50',
     favorite: false,
     origins: ['India'],
@@ -80,7 +80,7 @@ export const sample_foods:any[]=[
    {
     id:'8',
     name: 'Chhole Bhature',
-    price: 80,
+    price: 8,
     cookTime: '40-50',
     favorite: false,
     origins: ['India'],
@@ -91,7 +91,7 @@ export const sample_foods:any[]=[
    {
     id:'9',
     name: 'Sandwich',
-    price: 70,
+    price: 7,
     cookTime: '40-50',
     favorite: false,
     origins: ['italy'],
@@ -102,7 +102,7 @@ export const sample_foods:any[]=[
    {
     id:'10',
     name: 'Noodles',
-    price: 140,
+    price: 14,
     cookTime: '40-50',
     favorite: false,
     origins: ['italy'],
@@ -113,7 +113,7 @@ export const sample_foods:any[]=[
    {
     id:'11',
     name: 'Pasta',
-    price: 150,
+    price: 15,
     cookTime: '40-50',
     favorite: false,
     origins: ['italy'],
@@ -124,7 +124,7 @@ export const sample_foods:any[]=[
    {
     id:'12',
     name: 'Veg Roll',
-    price: 80,
+    price: 8,
     cookTime: '40-50',
     favorite: false,
     origins: ['Chine'],
