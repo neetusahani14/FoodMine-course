@@ -25,6 +25,6 @@ export class OrderService {   // ✅ service class name fixed
   }
 
   trackOrderById(id:number): Observable<Order> {   // ✅ new method to track order by ID
-    return this.http.get<Order>(`${ORDER_TRACK_URL}/${id}`);
+    return this.http.get<Order>(`${ORDER_TRACK_URL}${id}`);
   }
 }

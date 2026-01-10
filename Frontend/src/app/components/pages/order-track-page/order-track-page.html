@@ -1,7 +1,7 @@
 <div class="container">
     @if(order){
         <div class="content">
-        <h1>Order #{{order.Id}}</h1>
+        <h1>Order #{{order.id}}</h1>
         <div class="details">
             <div><strong>Date</strong> {{order.createdAt | date:'medium'}}</div>
             <div><strong>Name</strong> {{order.name}}</div>
@@ -17,9 +17,8 @@
     }
 
     <div>
-        <app-title title="Shipping Address">
-            <app-map [order]="order" [readonly]="true"></app-map>
-        </app-title>
+        <app-title title="Shipping Address">   </app-title>
+         <app-map [order]="order" [readonly]="true"></app-map>
     </div>
 
   
